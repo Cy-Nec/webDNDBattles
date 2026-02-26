@@ -1,0 +1,54 @@
+.combat-controls {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.end-turn-button,
+.end-combat-button {
+  min-width: 200px;
+  flex: 0 0 auto;
+}
+
+.end-turn-button {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: linear-gradient(145deg, #ff9800 0%, #f57c00 100%);
+  color: #fff;
+  border: 2px solid #ffb74d;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.end-turn-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 152, 0, 0.4);
+  border-color: #ffb74d;
+}
+
+.end-combat-button {
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: linear-gradient(145deg, #f44336 0%, #d32f2f 100%);
+  color: #fff;
+  border: 2px solid #ef5350;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.end-combat-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(244, 67, 54, 0.4);
+  border-color: #ef5350;
+}

@@ -1,0 +1,84 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: #fff;
+  padding: 2rem 1rem;
+}
+
+h1 {
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-align: center;
+}
+
+.buttons-container {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.role-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem 3rem;
+  background: linear-gradient(145deg, #2d2d44 0%, #1f1f35 100%);
+  border: 2px solid #4a4a6a;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 180px;
+}
+
+.role-button:hover {
+  transform: translateY(-5px);
+  border-color: #6c63ff;
+  box-shadow: 0 10px 30px rgba(108, 99, 255, 0.3);
+}
+
+.role-button span {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.button-icon {
+  width: 80px;
+  height: 80px;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+
+  .buttons-container {
+    gap: 1.5rem;
+  }
+
+  .role-button {
+    padding: 1.5rem 2rem;
+    min-width: 140px;
+  }
+
+  .role-button span {
+    font-size: 1.2rem;
+  }
+
+  .button-icon {
+    width: 60px;
+    height: 60px;
+  }
+}
