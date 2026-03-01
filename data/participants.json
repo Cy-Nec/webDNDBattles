@@ -1,40 +1,103 @@
 {
   "participants": [
     {
-      "type": "player",
-      "name": "йцу",
-      "hp": 10,
-      "friend": true,
-      "id": 1772118824825,
-      "initiative": 1,
-      "inCombat": true
-    },
-    {
-      "type": "player",
-      "name": "толя",
-      "hp": 13,
-      "friend": true,
-      "id": 1772119743809,
-      "initiative": 21,
-      "inCombat": true
-    },
-    {
       "type": "npc",
-      "name": "Мышь валерий",
-      "hp": 23,
-      "friend": true,
-      "id": 1772256692695,
-      "initiative": 4,
-      "inCombat": true
-    },
-    {
-      "type": "npc",
-      "name": "Валерий мышь",
-      "hp": 213,
+      "name": "Гигантская крыса",
+      "hp": 3,
       "friend": false,
-      "id": 1772256805707,
-      "initiative": 3,
-      "inCombat": true
+      "id": 1772333404518,
+      "initiative": null,
+      "inCombat": false
+    },
+    {
+      "type": "npc",
+      "name": "Гигантская крыса",
+      "hp": 9,
+      "friend": false,
+      "id": 1772333442509,
+      "initiative": null,
+      "inCombat": false
+    },
+    {
+      "type": "npc",
+      "name": "Рой крыс",
+      "hp": 19,
+      "friend": false,
+      "id": 1772333557211,
+      "initiative": null,
+      "inCombat": false
+    },
+    {
+      "type": "npc",
+      "name": "Гоблин-гоглин",
+      "hp": 11,
+      "friend": false,
+      "id": 1772333851873,
+      "initiative": null,
+      "inCombat": false
+    },
+    {
+      "type": "npc",
+      "name": "Кобольд-бобольд",
+      "hp": 9,
+      "friend": false,
+      "id": 1772333900395,
+      "initiative": null,
+      "inCombat": false
+    },
+    {
+      "type": "npc",
+      "name": "Кобольд-гобольд",
+      "hp": 12,
+      "friend": false,
+      "id": 1772333942426,
+      "initiative": null,
+      "inCombat": false
+    },
+    {
+      "type": "npc",
+      "name": "Гоблин-боблин",
+      "hp": 7,
+      "friend": true,
+      "id": 1772334356378,
+      "initiative": null,
+      "inCombat": false
+    },
+    {
+      "type": "npc",
+      "name": "Канализационный дрейк",
+      "hp": 20,
+      "friend": false,
+      "id": 1772334456414,
+      "initiative": null,
+      "inCombat": false
+    },
+    {
+      "type": "player",
+      "name": "Аурелия",
+      "hp": 0,
+      "friend": true,
+      "id": 1772334498925,
+      "initiative": null,
+      "inCombat": false
+    },
+    {
+      "type": "player",
+      "name": "Оруэл",
+      "hp": 0,
+      "friend": true,
+      "id": 1772334528718,
+      "initiative": null,
+      "inCombat": false
+    },
+    {
+      "type": "npc",
+      "name": "Гигантский паук",
+      "hp": 13,
+      "friend": false,
+      "id": 1772335432288,
+      "initiative": null,
+      "inCombat": false
     }
   ],
   "combatState": {

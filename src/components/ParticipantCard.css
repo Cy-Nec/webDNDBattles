@@ -153,6 +153,38 @@
   box-shadow: 0 0 8px rgba(108, 99, 255, 0.3);
 }
 
+.input-with-clear {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.input-with-clear .stat-input {
+  width: 50px;
+}
+
+.clear-init-btn {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.clear-init-btn:hover {
+  background: #6c63ff;
+  color: #fff;
+  transform: scale(1.1);
+}
+
 .combat-stats {
   display: flex;
   flex-direction: column;

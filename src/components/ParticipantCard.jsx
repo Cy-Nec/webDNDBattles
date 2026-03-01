@@ -104,13 +104,24 @@ function ParticipantCard({
       <div className="participant-stats">
         <div className="stat-group">
           <label>Иниц.</label>
-          <input
-            type="number"
-            className="stat-input"
-            value={participant.initiative ?? ''}
-            onChange={e => onUpdateInitiative(participant.id, e.target.value)}
-            min="0"
-          />
+          <div className="input-with-clear">
+            <input
+              type="number"
+              className="stat-input"
+              value={participant.initiative ?? ''}
+              onChange={e => onUpdateInitiative(participant.id, e.target.value)}
+              min="0"
+            />
+            {participant.initiative !== null && participant.initiative !== '' && (
+              <button
+                className="clear-init-btn"
+                onClick={() => onUpdateInitiative(participant.id, '')}
+                title="Очистить инициативу"
+              >
+                ✕
+              </button>
+            )}
+          </div>
         </div>
         <div className="stat-group">
           <label>ХП</label>

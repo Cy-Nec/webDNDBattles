@@ -89,21 +89,15 @@ function DmPage({ onBack }) {
   }
 
   const handleDeath = (id) => {
-    const participant = participants.find(p => p.id === id)
-    if (participant) {
-      if (participant.type === 'player') {
-        setParticipants(participants.map(p =>
-          p.id === id ? { ...p, dead: true, initiative: null, inCombat: false } : p
-        ))
-      } else {
-        setParticipants(participants.filter(p => p.id !== id))
-      }
-    }
+    setParticipants(participants.map(p =>
+      p.id === id ? { ...p, dead: true, initiative: null, inCombat: false } : p
+    ))
   }
 
   const handleLeaveCombat = (id) => {
+    // Выйти из боя и сбросить инициативу
     setParticipants(participants.map(p =>
-      p.id === id ? { ...p, inCombat: false } : p
+      p.id === id ? { ...p, inCombat: false, initiative: null } : p
     ))
   }
 
@@ -138,7 +132,8 @@ function DmPage({ onBack }) {
   }
 
   const endCombat = () => {
-    setParticipants(participants.map(p => ({ ...p, inCombat: false })))
+    // Сбросить участие в бою и инициативу у всех участников
+    setParticipants(participants.map(p => ({ ...p, inCombat: false, initiative: null })))
     setIsCombatMode(false)
     setRound(1)
     setCurrentTurnIndex(0)
