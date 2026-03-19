@@ -1,3 +1,5 @@
+@import './themes.css';
+
 .app {
   display: flex;
   flex-direction: column;
@@ -6,14 +8,14 @@
   min-height: 100vh;
   width: 100%;
   box-sizing: border-box;
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-  color: #fff;
-  padding: 2rem 1rem;
+  background: var(--dnd-bg-card);
+  color: var(--dnd-text-primary);
+  padding: var(--spacing-xl) var(--spacing-md);
 }
 
 h1 {
-  margin-bottom: 3rem;
-  font-size: 2.5rem;
+  margin-bottom: calc(var(--spacing-xl) + var(--spacing-lg));
+  font-size: var(--font-size-xxxl);
   text-transform: uppercase;
   letter-spacing: 3px;
   text-align: center;
@@ -21,7 +23,7 @@ h1 {
 
 .buttons-container {
   display: flex;
-  gap: 3rem;
+  gap: calc(var(--spacing-xl) + var(--spacing-lg));
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -30,24 +32,24 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
-  padding: 2rem 3rem;
-  background: linear-gradient(145deg, #2d2d44 0%, #1f1f35 100%);
-  border: 2px solid #4a4a6a;
-  border-radius: 16px;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-xl) calc(var(--spacing-xl) + var(--spacing-lg));
+  background: var(--dnd-bg-card);
+  border: 2px solid var(--dnd-border-primary);
+  border-radius: var(--border-radius-xl);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: var(--dnd-transition);
   min-width: 180px;
+  color: var(--dnd-text-primary);
 }
 
 .role-button:hover {
-  transform: translateY(-5px);
-  border-color: #6c63ff;
-  box-shadow: 0 10px 30px rgba(108, 99, 255, 0.3);
+  border-color: var(--dnd-accent-primary);
+  background: rgba(201, 162, 39, 0.15);
 }
 
 .role-button span {
-  font-size: 1.5rem;
+  font-size: var(--font-size-xl);
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -60,21 +62,21 @@ h1 {
 
 @media (max-width: 600px) {
   h1 {
-    font-size: 1.8rem;
-    margin-bottom: 2rem;
+    font-size: var(--font-size-xxl);
+    margin-bottom: var(--spacing-xl);
   }
 
   .buttons-container {
-    gap: 1.5rem;
+    gap: calc(var(--spacing-xl) + var(--spacing-sm));
   }
 
   .role-button {
-    padding: 1.5rem 2rem;
+    padding: calc(var(--spacing-xl) - var(--spacing-sm)) calc(var(--spacing-lg) + var(--spacing-md));
     min-width: 140px;
   }
 
   .role-button span {
-    font-size: 1.2rem;
+    font-size: var(--font-size-lg);
   }
 
   .button-icon {

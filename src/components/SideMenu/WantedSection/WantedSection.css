@@ -1,0 +1,367 @@
+@import '../../../themes.css';
+
+.wanted-section {
+  position: relative;
+  width: 100%;
+  min-height: 150px;
+}
+
+.wanted-content {
+  width: 100%;
+  min-height: 100px;
+  padding-bottom: 56px;
+  box-sizing: border-box;
+}
+
+.wanted-placeholder {
+  margin: 0;
+  padding: var(--spacing-lg);
+  font-size: var(--font-size-sm);
+  color: var(--dnd-text-muted);
+  font-style: italic;
+  text-align: center;
+}
+
+.wanted-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  padding: var(--spacing-sm);
+  max-height: 30vh;
+  overflow-y: auto;
+}
+
+.wanted-cards::-webkit-scrollbar {
+  width: 6px;
+}
+
+.wanted-cards::-webkit-scrollbar-track {
+  background: rgba(245, 230, 211, 0.05);
+  border-radius: var(--border-radius-sm);
+}
+
+.wanted-cards::-webkit-scrollbar-thumb {
+  background: var(--dnd-accent-primary);
+  border-radius: var(--border-radius-sm);
+}
+
+.wanted-cards::-webkit-scrollbar-thumb:hover {
+  background: var(--dnd-accent-hover);
+}
+
+.wanted-card {
+  background: rgba(245, 230, 211, 0.05);
+  border: 2px solid var(--dnd-border-primary);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  width: calc(50% - var(--spacing-md));
+  box-sizing: border-box;
+  cursor: context-menu;
+}
+
+.wanted-card.dead {
+  opacity: 0.6;
+  border-color: var(--dnd-danger);
+  background: rgba(168, 63, 50, 0.1);
+}
+
+.wanted-card-dead {
+  font-size: var(--font-size-xs);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+  align-self: flex-start;
+  background: rgba(168, 63, 50, 0.3);
+  color: var(--dnd-danger);
+}
+
+.wanted-card-name {
+  font-size: var(--font-size-sm);
+  font-weight: bold;
+  color: var(--dnd-text-primary);
+  word-break: break-word;
+}
+
+.wanted-card-hp {
+  font-size: var(--font-size-xs);
+  color: var(--dnd-text-secondary);
+  background: rgba(245, 230, 211, 0.1);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+  align-self: flex-start;
+}
+
+.wanted-card-type {
+  font-size: var(--font-size-xs);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+  align-self: flex-start;
+}
+
+.wanted-card-type.type-player {
+  background: rgba(93, 138, 62, 0.3);
+  color: #5d8a3e;
+}
+
+.wanted-card-type.type-friend {
+  background: rgba(74, 124, 156, 0.3);
+  color: #4a7c9c;
+}
+
+.wanted-card-type.type-enemy {
+  background: rgba(168, 63, 50, 0.3);
+  color: #a83f32;
+}
+
+/* Кнопка добавления */
+.wanted-add-btn {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--border-radius-md);
+  border: 2px solid var(--dnd-accent-primary);
+  background: var(--dnd-turn-indicator);
+  color: var(--dnd-text-primary);
+  cursor: pointer;
+  transition: var(--dnd-transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  flex-shrink: 0;
+  z-index: 10;
+}
+
+.wanted-add-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 5px 15px rgba(201, 162, 39, 0.4);
+}
+
+.wanted-add-icon {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1);
+}
+
+/* Модальное окно */
+.wanted-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: var(--z-modal-backdrop);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-md);
+}
+
+.wanted-modal {
+  background: var(--dnd-bg-card);
+  border: 2px solid var(--dnd-accent-primary);
+  border-radius: var(--border-radius-xl);
+  padding: var(--spacing-lg);
+  width: 100%;
+  max-width: 350px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.wanted-modal-small {
+  max-width: 280px;
+}
+
+.wanted-modal h3 {
+  margin: 0 0 var(--spacing-lg) 0;
+  font-size: var(--font-size-lg);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--dnd-text-primary);
+  text-align: center;
+}
+
+.wanted-form-group {
+  margin-bottom: var(--spacing-md);
+}
+
+.wanted-form-group label {
+  display: block;
+  margin-bottom: var(--spacing-xs);
+  font-size: var(--font-size-sm);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--dnd-text-secondary);
+}
+
+.wanted-form-group input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--font-size-md);
+  background: rgba(245, 230, 211, 0.1);
+  border: 2px solid var(--dnd-border-primary);
+  border-radius: var(--border-radius-md);
+  color: var(--dnd-text-primary);
+  transition: var(--dnd-transition);
+}
+
+.wanted-form-group input:focus {
+  outline: none;
+  border-color: var(--dnd-accent-primary);
+}
+
+/* Стилизация слайдеров/числовых полей */
+.wanted-form-group input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.wanted-form-group input[type="number"]::-webkit-outer-spin-button,
+.wanted-form-group input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.wanted-form-group input[type="number"]:hover {
+  border-color: var(--dnd-accent-hover);
+}
+
+.wanted-type-selector {
+  display: flex;
+  gap: var(--spacing-xs);
+}
+
+.wanted-type-btn {
+  flex: 1;
+  padding: var(--spacing-sm) var(--spacing-xs);
+  font-size: var(--font-size-xs);
+  font-weight: bold;
+  text-transform: uppercase;
+  background: rgba(245, 230, 211, 0.1);
+  border: 2px solid var(--dnd-border-primary);
+  border-radius: var(--border-radius-md);
+  color: var(--dnd-text-primary);
+  cursor: pointer;
+  transition: var(--dnd-transition);
+}
+
+.wanted-type-btn.active {
+  background: var(--dnd-accent-primary);
+  border-color: var(--dnd-accent-primary);
+}
+
+.wanted-type-btn:hover:not(.active) {
+  border-color: var(--dnd-border-light);
+}
+
+.wanted-modal-actions {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-lg);
+}
+
+.wanted-cancel-btn,
+.wanted-confirm-btn {
+  flex: 1;
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--font-size-md);
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  transition: var(--dnd-transition);
+}
+
+.wanted-cancel-btn {
+  background: rgba(245, 230, 211, 0.1);
+  color: var(--dnd-text-primary);
+  border: 2px solid var(--dnd-border-primary);
+}
+
+.wanted-cancel-btn:hover {
+  background: rgba(245, 230, 211, 0.2);
+}
+
+.wanted-confirm-btn {
+  background: var(--dnd-accent-primary);
+  color: var(--dnd-text-primary);
+}
+
+.wanted-confirm-btn:hover {
+  background: var(--dnd-accent-hover);
+}
+
+/* Контекстное меню */
+.wanted-context-menu {
+  position: fixed;
+  background: var(--dnd-bg-card);
+  border: 2px solid var(--dnd-accent-primary);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-xs);
+  min-width: 150px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+  z-index: var(--z-tooltip);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  animation: contextMenuAppear 0.15s ease;
+}
+
+@keyframes contextMenuAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.context-menu-item {
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--font-size-sm);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: rgba(245, 230, 211, 0.05);
+  border: 2px solid var(--dnd-border-primary);
+  border-radius: var(--border-radius-md);
+  color: var(--dnd-text-primary);
+  cursor: pointer;
+  transition: var(--dnd-transition);
+  text-align: left;
+}
+
+.context-menu-item:hover {
+  border-color: var(--dnd-accent-primary);
+  background: rgba(201, 162, 39, 0.2);
+}
+
+.context-menu-item.danger {
+  border-color: var(--dnd-danger);
+}
+
+.context-menu-item.danger:hover {
+  background: rgba(168, 63, 50, 0.3);
+}
+
+.context-menu-item.revive {
+  border-color: var(--dnd-success);
+}
+
+.context-menu-item.revive:hover {
+  background: rgba(93, 138, 62, 0.3);
+}

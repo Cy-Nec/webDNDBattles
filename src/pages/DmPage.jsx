@@ -1,8 +1,12 @@
 import { useState, useEffect } from "react";
 import "./DmPage.css";
+import "../themes.css";
+import menuIcon from "../../public/menu.svg";
+import arrowBackIcon from "../../public/arrow_back.svg";
 import CombatControls from "../components/CombatControls";
 import ParticipantCard from "../components/ParticipantCard";
 import AddParticipantModal from "../components/AddParticipantModal";
+import SideMenu from "../components/SideMenu/SideMenu";
 import { useWakeLock } from "../hooks/useWakeLock";
 import {
   sortByInitiative,
@@ -20,6 +24,7 @@ function DmPage({ onBack }) {
   const [isLoading, setIsLoading] = useState(true);
   const [round, setRound] = useState(1);
   const [currentTurnIndex, setCurrentTurnIndex] = useState(0);
+  const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
 
   // Блокировка отключения экрана
   useWakeLock();
@@ -259,17 +264,59 @@ function DmPage({ onBack }) {
   };
 
   return (
-    <div className="dm-page">
+    <div className="dm-page theme-dnd">
       <div className="dm-header">
         <button className="back-button" onClick={onBack}>
-          ← На главную
+          <img src={arrowBackIcon} alt="На главную" className="back-icon" />
         </button>
         <h1>Панель Мастера</h1>
+        <button className="menu-button" onClick={() => setIsSideMenuOpen(true)}>
+          <img src={menuIcon} alt="Меню" />
+        </button>
       </div>
 
-      <button className="add-button" onClick={() => setIsModalOpen(true)}>
-        + Добавить участника
-      </button>
+      {/* Боковое меню */}
+      <SideMenu
+        isOpen={isSideMenuOpen}
+        onClose={() => setIsSideMenuOpen(false)}
+        onEndCombat={endCombat}
+        isCombatMode={isCombatMode}
+        wantedParticipants={participants}
+        onAddWantedParticipant={(participant) => {
+          setParticipants([
+            ...participants,
+            {
+              ...participant,
+              id: Date.now(),
+              initiative: null,
+              inCombat: false,
+              statuses: []
+            }
+          ])
+        }}
+        onRemoveWantedParticipant={(id) => {
+          setParticipants(participants.filter(p => p.id !== id))
+        }}
+        onEditWantedParticipant={(participant) => {
+          setParticipants(participants.map(p =>
+            p.id === participant.id ? participant : p
+          ))
+        }}
+        onJoinCombat={(id, initiative) => {
+          setParticipants(participants.map(p =>
+            p.id === id ? {
+              ...p,
+              inCombat: true,
+              initiative: initiative !== null && initiative !== undefined ? initiative : p.initiative
+            } : p
+          ))
+        }}
+        onReviveWantedParticipant={(id) => {
+          setParticipants(participants.map(p =>
+            p.id === id ? { ...p, dead: false } : p
+          ))
+        }}
+      />
 
       {isCombatMode && (
         <CombatControls

@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import "./PlayerPage.css";
+import "../themes.css";
+import arrowBackIcon from "../../public/arrow_back.svg";
 import ParticipantCard from "../components/ParticipantCard";
 import RoundDisplay from "../components/RoundDisplay";
 import { useWakeLock } from "../hooks/useWakeLock";
@@ -112,10 +114,10 @@ function PlayerPage({ onBack, playerId }) {
   }
 
   return (
-    <div className="player-page">
+    <div className="player-page theme-dnd">
       <div className="player-header">
         <button className="back-button" onClick={onBack}>
-          ← На главную
+          <img src={arrowBackIcon} alt="На главную" className="back-icon" />
         </button>
         <h1>Бой ({(round - 1) * 6} сек)</h1>
       </div>

@@ -1,0 +1,176 @@
+/* ===================================
+   ТЕМЫ ОФОРМЛЕНИЯ DnD Web Battles
+   =================================== */
+
+/* -----------------------------------
+   D&D ТЕМA (жёлтые, коричневые тона)
+   Без неонового свечения
+   ----------------------------------- */
+.theme-dnd {
+  /* Основные цвета */
+  --dnd-bg-primary: #2c2416;
+  --dnd-bg-secondary: #3d3221;
+  --dnd-bg-tertiary: #4a3f2a;
+  --dnd-bg-card: linear-gradient(145deg, #3d3221 0%, #2c2416 100%);
+  
+  /* Цвета текста */
+  --dnd-text-primary: #f5e6d3;
+  --dnd-text-secondary: #d4c4a8;
+  --dnd-text-muted: #a89f8a;
+  
+  /* Акцентные цвета */
+  --dnd-accent-primary: #c9a227;
+  --dnd-accent-secondary: #b89322;
+  --dnd-accent-hover: #dcc056;
+  
+  /* Цвета границ */
+  --dnd-border-primary: #6b5744;
+  --dnd-border-secondary: #4a3f2a;
+  --dnd-border-light: #a89f8a;
+  
+  /* Цвета действий */
+  --dnd-success: #5d8a3e;
+  --dnd-success-hover: #6fa34a;
+  --dnd-danger: #a83f32;
+  --dnd-danger-hover: #c44a3a;
+  --dnd-warning: #c9a227;
+  --dnd-info: #4a7c9c;
+  
+  /* Особые цвета */
+  --dnd-gold: #d4af37;
+  --dnd-leather: #8b7355;
+  --dnd-parchment: #f5e6d3;
+  --dnd-wood: #5c4a32;
+  
+  /* Эффекты */
+  --dnd-transition: all 0.3s ease;
+  
+  /* Статусы */
+  --dnd-status-positive: #5d8a3e;
+  --dnd-status-negative: #a83f32;
+  --dnd-status-neutral: #8b7355;
+  --dnd-status-magic: #7b5a9c;
+  
+  /* Индикаторы */
+  --dnd-turn-indicator: linear-gradient(145deg, #c9a227 0%, #b89322 100%);
+  --dnd-skip-indicator: linear-gradient(145deg, #8b7355 0%, #6b5744 100%);
+}
+
+/* -----------------------------------
+   СТАНДАРТНАЯ ТЕМA (сине-фиолетовая)
+   С неоновым свечением
+   ----------------------------------- */
+.theme-default {
+  /* Основные цвета */
+  --bg-primary: #1a1a2e;
+  --bg-secondary: #16213e;
+  --bg-card: linear-gradient(145deg, #2d2d44 0%, #1f1f35 100%);
+  
+  /* Цвета текста */
+  --text-primary: rgba(255, 255, 255, 0.87);
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --text-muted: rgba(255, 255, 255, 0.5);
+  
+  /* Акцентные цвета */
+  --accent-primary: #6c63ff;
+  --accent-secondary: #8b85ff;
+  --accent-hover: #5a52d5;
+  
+  /* Цвета границ */
+  --border-primary: #4a4a6a;
+  --border-secondary: #3a3a5a;
+  --border-light: #6c63ff;
+  
+  /* Цвета действий */
+  --success: #4caf50;
+  --success-hover: #388e3c;
+  --danger: #f44336;
+  --danger-hover: #d32f2f;
+  --warning: #ff9800;
+  --info: #2196f3;
+  
+  /* Эффекты */
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --shadow-hover: 0 8px 25px rgba(108, 99, 255, 0.4);
+  --glow: 0 0 20px rgba(108, 99, 255, 0.5);
+  --transition: all 0.3s ease;
+  
+  /* Статусы */
+  --status-positive: #4caf50;
+  --status-negative: #f44336;
+  --status-neutral: #4a4a6a;
+  --status-magic: #9c27b0;
+  
+  /* Индикаторы */
+  --turn-indicator: linear-gradient(145deg, #ff9800 0%, #f57c00 100%);
+  --skip-indicator: linear-gradient(145deg, #9c27b0 0%, #7b1fa2 100%);
+}
+
+/* -----------------------------------
+   Общие переменные для обеих тем
+   ----------------------------------- */
+:root {
+  /* Размеры */
+  --border-radius-sm: 6px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-xl: 16px;
+  --border-radius-round: 50%;
+  
+  /* Отступы */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  
+  /* Шрифты */
+  --font-family: "Playpen Sans", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --font-size-xs: 0.7rem;
+  --font-size-sm: 0.85rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.2rem;
+  --font-size-xl: 1.5rem;
+  --font-size-xxl: 1.8rem;
+  --font-size-xxxl: 2.5rem;
+  
+  /* Анимации */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  
+  /* Z-индексы */
+  --z-dropdown: 100;
+  --z-sticky: 500;
+  --z-modal-backdrop: 1000;
+  --z-modal: 1001;
+  --z-tooltip: 1000000;
+}
+
+/* -----------------------------------
+   Общие стили скроллбаров
+   ----------------------------------- */
+.theme-dnd ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.theme-dnd ::-webkit-scrollbar-track {
+  background: rgba(245, 230, 211, 0.05);
+  border-radius: 4px;
+}
+
+.theme-dnd ::-webkit-scrollbar-thumb {
+  background: var(--dnd-accent-primary);
+  border-radius: 4px;
+  border: 2px solid rgba(245, 230, 211, 0.05);
+  background-clip: padding-box;
+}
+
+.theme-dnd ::-webkit-scrollbar-thumb:hover {
+  background: var(--dnd-accent-hover);
+}
+
+.theme-dnd ::-webkit-scrollbar-corner {
+  background: rgba(245, 230, 211, 0.05);
+}

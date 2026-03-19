@@ -1,12 +1,23 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
+import './themes.css'
 import playerIcon from './assets/player.svg'
 import dmIcon from './assets/dm.svg'
 import DmPage from './pages/DmPage'
 import PlayerPage from './pages/PlayerPage'
 
 function App() {
-  const [role, setRole] = useState(null)
+  const [role, setRole] = useState(() => {
+    return localStorage.getItem('dnd-role') || null
+  })
+
+  useEffect(() => {
+    if (role) {
+      localStorage.setItem('dnd-role', role)
+    } else {
+      localStorage.removeItem('dnd-role')
+    }
+  }, [role])
 
   if (role === 'dm') {
     return <DmPage onBack={() => setRole(null)} />
@@ -17,7 +28,7 @@ function App() {
   }
 
   return (
-    <div className="app">
+    <div className="app theme-dnd">
       <h1>Выберите роль</h1>
       <div className="buttons-container">
         <button className="role-button" onClick={() => setRole('player')}>
