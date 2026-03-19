@@ -2,9 +2,29 @@ import express from "express";
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from "fs";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
+import { networkInterfaces } from "os";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+
+// Функция для получения локального IP
+function getLocalIp() {
+  const nets = networkInterfaces();
+  for (const name of Object.keys(nets)) {
+    for (const net of nets[name]) {
+      // Выбираем IPv4, не внутренние адреса
+      if (net.family === "IPv4" && !net.internal) {
+        // Предпочтение 192.168.x.x и 10.x.x.x
+        if (net.address.startsWith("192.168.") || net.address.startsWith("10.")) {
+          return net.address;
+        }
+      }
+    }
+  }
+  return "localhost";
+}
+
+const LOCAL_IP = getLocalIp();
 
 const app = express();
 const PORT = 3001;
@@ -106,6 +126,6 @@ app.put("/api/combat-state", (req, res) => {
 
 app.listen(PORT, "0.0.0.0", () => {
   console.log(`API сервер запущен на http://localhost:${PORT}`);
-  console.log(`Доступен в сети: http://0.0.0.0:${PORT}`);
+  console.log(`Доступен в сети: http://${LOCAL_IP}:${PORT}`);
   console.log(`Файл данных: ${DATA_FILE}`);
 });

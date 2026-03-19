@@ -1,4 +1,4 @@
-# webDNDBattles — D&D Combat Tracker
+# DnDwebBattles — D&D Combat Tracker
 
 Веб-приложение для отслеживания боя в настольных ролевых играх (D&D и другие системы). Позволяет мастеру и игрокам видеть текущее состояние боя: инициативу, здоровье участников и номер раунда.
 
@@ -30,8 +30,8 @@
 ### 1. Клонирование репозитория
 
 ```bash
-git clone https://github.com/Cy-Nec/webDNDBattles.git
-cd webDNDBattles
+git clone https://github.com/Cy-Nec/DnDwebBattles.git
+cd DnDwebBattles
 ```
 
 ### 2. Установка зависимостей
@@ -163,7 +163,7 @@ export default defineConfig({
 ## Структура проекта
 
 ```
-webDNDBattles/
+DnDwebBattles/
 ├── src/
 │   ├── App.jsx              # Главный компонент (выбор роли)
 │   ├── pages/
